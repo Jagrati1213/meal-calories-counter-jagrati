@@ -1,7 +1,7 @@
 # CalorieTrack - Meal & Nutrition Tracker
 
 A modern web application to track your meals, monitor calorie intake, and achieve your health goals with an intuitive interface.
-
+live link: https://meal-calories-counter-jagrati.vercel.app/
 ## 🚀 Features
 
 - **Meal Tracking**: Log your daily meals and snacks
@@ -84,5 +84,11 @@ src/
 ## 🚨 Note About Food Search API
 
 ## The application was initially designed to integrate with a food search API for automatic calorie calculation. However, due to API limitations and reliability issues, this feature has been temporarily disabled. The code for this functionality has been commented out but remains in the codebase for future reference. Users can still manually enter their meal information.
+
+### Screenshot:
+<img width="1533" height="935" alt="image" src="https://github.com/user-attachments/assets/b5356bf9-c4d4-4b1c-b4db-ece48e5d79c6" />
+<img width="1510" height="942" alt="image" src="https://github.com/user-attachments/assets/00a2513b-9f31-4753-a777-4210ce69b11e" />
+<img width="1477" height="942" alt="image" src="https://github.com/user-attachments/assets/c0f29533-d2ab-460e-9849-98b605db1709" />
+<img width="1561" height="939" alt="image" src="https://github.com/user-attachments/assets/64a4094c-f569-40a7-af9c-bbf3fb09b2ee" />
 
 Made with ❤️ by [Jagrati]
