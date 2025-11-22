@@ -11,11 +11,9 @@ import { Label } from "@radix-ui/react-label";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 
-export function MealForm({onClose}: {onClose: () => void}) {
+export function MealForm({ onClose }: { onClose: () => void }) {
   const [isLoading, setIsLoading] = useState(false);
-  const { setResult, addToHistory } = useMealStore(
-    (state) => state
-  );
+  const { setResult, addToHistory } = useMealStore((state) => state);
   /* //Api is not giving proper response
    const [searchQuery, setSearchQuery] = useState("");
    const [isSearching, setIsSearching] = useState(false);
@@ -32,7 +30,7 @@ export function MealForm({onClose}: {onClose: () => void}) {
     resolver: zodResolver(mealSchema),
     defaultValues: {
       servings: 1,
-      dishName:""
+      dishName: "",
     },
   });
 
@@ -50,7 +48,7 @@ export function MealForm({onClose}: {onClose: () => void}) {
     try {
       const response = await api.post("/get-calories", {
         // dish_name: selectedDish.description,
-        dish_name: data.dishName,
+        dish_name: data.dishName?.trim()?.toLowerCase(),
         servings: data.servings,
       });
 
@@ -71,7 +69,8 @@ export function MealForm({onClose}: {onClose: () => void}) {
         onClose();
       }
     } catch (err: any) {
-      const errorMessage = err.response?.data?.message || "Failed to calculate meal";
+      const errorMessage =
+        err.response?.data?.message || "Failed to calculate meal";
       toast.error(errorMessage);
     } finally {
       setIsLoading(false);
@@ -128,15 +127,15 @@ export function MealForm({onClose}: {onClose: () => void}) {
   return (
     <div className="border-0 shadow-none">
       <div className="flex flex-col gap-y-1">
-          <div className="flex items-center justify-center">
-            <div className="p-3 rounded-full bg-primary/10">
-              <Icons.utensils className="h-6 w-6 text-primary" />
-            </div>
+        <div className="flex items-center justify-center">
+          <div className="p-3 rounded-full bg-primary/10">
+            <Icons.utensils className="h-6 w-6 text-primary" />
           </div>
-          <h1 className="text-center text-2xl">Calculate Meal Calories</h1>
-          <p className="text-center text-sm">
-            Enter your meal details to get nutritional information
-          </p>
+        </div>
+        <h1 className="text-center text-2xl">Calculate Meal Calories</h1>
+        <p className="text-center text-sm">
+          Enter your meal details to get nutritional information
+        </p>
       </div>
 
       <div className="flex flex-col my-6 gap-y-3">
@@ -144,15 +143,15 @@ export function MealForm({onClose}: {onClose: () => void}) {
           <div className="space-y-2">
             <Label htmlFor="dishName">Dish Name</Label>
             <div className="relative">
-               <Input
-                  id="dishName"
-                  placeholder="Search for a dish..."
-                  // value={searchQuery}
-                  // onChange={handleInputChange}
-                  className="pl-10"
-                  disabled={isLoading}
-                  {...register("dishName")}
-                />
+              <Input
+                id="dishName"
+                placeholder="Search for a dish..."
+                // value={searchQuery}
+                // onChange={handleInputChange}
+                className="pl-10"
+                disabled={isLoading}
+                {...register("dishName")}
+              />
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                 <Icons.chefHat className="h-4 w-4 text-muted-foreground" />
               </div>
@@ -191,7 +190,7 @@ export function MealForm({onClose}: {onClose: () => void}) {
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                 <Icons.serving className="h-4 w-4 text-muted-foreground" />
               </div>
-               <Input
+              <Input
                 type="number"
                 id="servings"
                 placeholder="2"
@@ -206,19 +205,19 @@ export function MealForm({onClose}: {onClose: () => void}) {
             </div>
           </div>
 
-          <Button type="submit" className="w-full"   
-          // disabled={isLoading || isSearching || !selectedDish}
-          disabled={isLoading}
+          <Button
+            type="submit"
+            className="w-full"
+            // disabled={isLoading || isSearching || !selectedDish}
+            disabled={isLoading}
           >
-            {isLoading? (
+            {isLoading ? (
               <>
                 <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
                 Calculating...
               </>
             ) : (
-              <>
-                Calculate
-              </>
+              <>Calculate</>
             )}
           </Button>
         </form>
