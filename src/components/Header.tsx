@@ -53,7 +53,7 @@ export function Header() {
             {user?.firstName ||
               (user?.email && (
                 <span className="text-xs sm:text-md text-primary whitespace-nowrap hidden md:inline">
-                  `Hi, ${user?.firstName || user?.email}`
+                  Hi, {user?.firstName || user?.email}
                 </span>
               ))}
             <Button
